@@ -16,6 +16,7 @@ public class Kafe20 {
         jumlah = sc.nextInt();
         System.out.print("Masukan keanggotaan (true/false): ");
         keanggotaan = sc.nextBoolean();
+        System.out.println();
 
         double hargaMenu = 0;
 
@@ -32,5 +33,29 @@ public class Kafe20 {
         }
 
         double totalHarga = hargaMenu * jumlah;
+
+        switch (ukuranCup) {
+            case 'S':
+                break;
+        
+            case 'M':
+                totalHarga += 0.25 * totalHarga;
+                break;
+        
+            case 'L':
+                totalHarga += 0.4 * totalHarga;
+                break;
+        
+            default:
+                System.out.println("The selected size is not available!");
+                break;
+        }
+
+        double diskon = keanggotaan ? 0.1 : 0;
+        double nominalBayar = totalHarga - (diskon * totalHarga);
+
+        System.out.println();
+        System.out.println("Item pembelian: " + jumlah + " " + menu + " dengan ukuran cup " + ukuranCup);
+        System.out.println("Nominal bayar: " + nominalBayar);
     }
 }
